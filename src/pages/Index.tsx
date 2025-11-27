@@ -11,6 +11,11 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const AFFILIATE_URL = 'https://refpa3665.com/L?tag=d_4967686m_2170c_12&site=4967686&ad=2170';
+
+  const handleCasinoClick = () => {
+    window.open(AFFILIATE_URL, '_blank');
+  };
 
   const games = [
     { id: 1, name: 'Golden Sevens', category: 'Слоты', jackpot: '2,450,000 ₽', image: '🎰' },
@@ -50,9 +55,13 @@ const Index = () => {
             <button onClick={() => setActiveSection('vip')} className="text-sm font-medium hover:text-primary transition-colors">VIP-клуб</button>
           </nav>
 
+          <Button onClick={handleCasinoClick} className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold">
+            Войти
+          </Button>
+
           <Dialog open={isAuthOpen} onOpenChange={setIsAuthOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold">
+              <Button className="hidden">
                 Войти
               </Button>
             </DialogTrigger>
@@ -113,10 +122,10 @@ const Index = () => {
                   Эксклюзивные игры, мгновенные выплаты и премиальный сервис
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-8 py-6 animate-pulse-glow">
+                  <Button onClick={handleCasinoClick} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-8 py-6 animate-pulse-glow">
                     Играть сейчас
                   </Button>
-                  <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 font-semibold text-lg px-8 py-6">
+                  <Button onClick={handleCasinoClick} size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 font-semibold text-lg px-8 py-6">
                     Получить бонус
                   </Button>
                 </div>
@@ -154,7 +163,7 @@ const Index = () => {
                           <span className="text-lg font-bold text-primary">{game.jackpot}</span>
                         </div>
                       </div>
-                      <Button className="w-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-colors">
+                      <Button onClick={handleCasinoClick} className="w-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-colors">
                         Играть
                       </Button>
                     </div>
@@ -220,14 +229,14 @@ const Index = () => {
                     <div className="text-5xl font-bold text-primary glow-gold">{bonus.amount}</div>
                     <div className="text-muted-foreground">до {bonus.max}</div>
                   </div>
-                  <Button className="w-full bg-primary hover:bg-primary/90">Получить</Button>
+                  <Button onClick={handleCasinoClick} className="w-full bg-primary hover:bg-primary/90">Получить</Button>
                 </Card>
               ))}
             </div>
             <Card className="bg-gradient-to-r from-primary/20 to-secondary/20 border-primary/30 p-12 text-center">
               <h3 className="text-3xl font-bold mb-4">Эксклюзивное предложение</h3>
               <p className="text-xl mb-6">Промокод <span className="text-primary font-bold text-2xl">ROYAL2024</span> - дополнительный кэшбэк 10%</p>
-              <Button size="lg" className="bg-primary hover:bg-primary/90">Активировать промокод</Button>
+              <Button onClick={handleCasinoClick} size="lg" className="bg-primary hover:bg-primary/90">Активировать промокод</Button>
             </Card>
           </div>
         </section>
@@ -265,7 +274,7 @@ const Index = () => {
                     <div className="text-xs text-muted-foreground mb-1">Минимальный депозит:</div>
                     <div className="text-xl font-bold text-primary">{vip.minDeposit}</div>
                   </div>
-                  <Button className="w-full bg-primary/10 hover:bg-primary hover:text-primary-foreground">
+                  <Button onClick={handleCasinoClick} className="w-full bg-primary/10 hover:bg-primary hover:text-primary-foreground">
                     Подробнее
                   </Button>
                 </Card>
@@ -276,7 +285,7 @@ const Index = () => {
       )}
 
       <div className="fixed bottom-8 right-8 z-50">
-        <Button size="lg" className="rounded-full w-16 h-16 shadow-lg bg-secondary hover:bg-secondary/90 animate-pulse-glow">
+        <Button onClick={handleCasinoClick} size="lg" className="rounded-full w-16 h-16 shadow-lg bg-secondary hover:bg-secondary/90 animate-pulse-glow">
           <Icon name="MessageCircle" size={24} />
         </Button>
       </div>
